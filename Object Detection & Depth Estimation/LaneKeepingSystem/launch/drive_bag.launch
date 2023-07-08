@@ -1,0 +1,10 @@
+<launch>
+    <node name="rosbag_play" pkg="rosbag" type="play" output="screen" required="true" args="/home/nvidia/xycar_ws/cam_topic1.bag" />
+    <!-- rosbag record -O /home/nvidia/xycar_ws/cam_topic /usb_cam/image_raw/  -->
+
+    <!-- yolov3_trt_ros/trt_detection-->
+    <node name="trt_detection" pkg="yolov3_trt_ros" type="trt_detection.py" output="screen" />
+    
+    <node name="Lane_Keeping_System" pkg="LaneKeepingSystem" type="LaneKeepingSystem_node" output="screen"/>
+    <param name="config_path" type="str" value="$(find LaneKeepingSystem)/config/config.yaml"/>
+</launch>

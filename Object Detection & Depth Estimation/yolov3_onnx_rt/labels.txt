@@ -1,0 +1,6 @@
+left
+right
+stop
+crosswalk
+traffic_light
+xycar
